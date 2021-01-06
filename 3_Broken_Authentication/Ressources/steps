@@ -1,0 +1,30 @@
+As metioned in OWASP you can get a list of known and most common passwords at 
+https://github.com/danielmiessler/SecLists/blob/master/Passwords/
+Navigate to Common-Credentials and download 10k-most-common.txt
+
+For this solution to work you don't need a username (use 'me', or 'admin' or leave it blanc), 
+but the most common usernames for admins you can find at:
+https://github.com/danielmiessler/SecLists/blob/master/Usernames/CommonAdminBase64.txt
+
+First, determine what you should send with your GET request.
+Enter any username and password and click submit.
+Since it's a GET request, you can check the URL for what parameters were sent.
+    For POST requests:
+    In browser open Network - All - Headers,
+    scroll to the bottom and check Query String Parameters
+
+Then, pre-fill parameters 'page', 'username', 'Login'.
+Set 'password' to one of the 10k-most-common and send that request.
+Try that for every password.
+
+FIX
+- limit failed login (ex. block after 5 attemps)
+- use multi-factor authentication
+- password checking:
+    - check that you don't have the most common passwords on your systeme
+        else -> send a prompt to user to change it
+    - don't allow new users to use them when creating an account
+    - raise password complexity requirement
+        (ex. should be >= 8 chars with 1 upper, 1 num, 1 special)
+- change requests to be passed not thorught GET(in the URL)
+    but through POST(in the message body) to be more secure
