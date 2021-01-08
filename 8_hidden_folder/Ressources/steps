@@ -1,0 +1,24 @@
+By checking robots.txt file we can see two disallowed folders /whatever and /.hidden.
+In the second one we find lots of folders with README files.
+Just make a crawler that reads those files and saves unique messages.
+In one of those messages you'll find the flag.
+So, after 1,5 min (if you treat links in reversed order) crawler returns:
+
+Non ce n'est toujours pas bon ...
+
+Demande Ã  ton voisin du dessus  
+
+Demande Ã  ton voisin de gauche  
+
+99dde1d35d1fdd283924d84e6d9f1d820
+
+Tu veux de l'aide ? Moi aussi !  
+
+Demande Ã  ton voisin du dessous 
+
+Toujours pas tu vas craquer non ?
+
+Demande Ã  ton voisin de droite 
+
+
+FIX

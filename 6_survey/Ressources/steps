@@ -1,0 +1,9 @@
+At the Survey page we can choose a grade we give each subject.
+By inspecting the fields with values we can see that they are hard coded
+and we can easily change them and assign waaay more points than supposed to,
+thus, altering the results of the survey dramatically.
+
+FIX
+- at the least, check server-side the values recieved, that they are >= 1 and <= 10
+- better yet, on the client side use custom values like "salt", "pepper", "spice", etc
+    and then convert them at the server to number values 1, 2, 3, etc.

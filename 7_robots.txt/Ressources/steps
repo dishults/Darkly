@@ -1,0 +1,16 @@
+By checking robots.txt file we can see two disallowed folders /whatever and /.hidden.
+In the first one we find standart password file htpasswd.
+Inside there is a key-value pair, key is unencrypted 'root' and the password for it
+is md5 encrypted and is 'dragon'.
+
+We can deduce that root is definitely for admin access so we go to /admin page
+and enter the above details.
+
+FIX
+"disallow" in robots.txt only prevents some crawlers (not Google) from crawling your site,
+    so it's not a valid technique to make links private.
+So better do:
+- password protect those resources and require to retype it for everyone!
+    Or at least, check on the server if the user is authenticated
+    and has the right priveleges to access it and
+    don't rely on the client side or robots.txt file.

@@ -1,0 +1,17 @@
+At the bottom of the page when we click on ©BornToSec we are taken to a page
+with a wierd address e43ad1fdc54babe674da7c7b8f0127bde61de3fbe01def7d00f151c2fcca6d1c
+    which, by the way, translates to TAMERE from sha256 (check with https://www.dcode.fr/hash-function)
+From there if we check the source code we can see that something's going on
+with all the spaces and comments, but two particular ones stand out:
+
+- You must cumming from : "https://www.nsa.gov/" to go to the next step
+- Let's use this browser : "ft_bornToSec". It will help you a lot.
+
+From this information we can infer that the first one is about "referer" header
+and the second is about "User-Agent" header that tells the server which browser is being used.
+
+So we set those two headers and send our GET request, then look for a flag in the response.
+
+FIX
+- don't rely on those headers for any kind of verification that would lead to 
+    showing sensitive information. Better to check users' clearence level server-side.
