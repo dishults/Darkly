@@ -1,0 +1,36 @@
+This attack is also known as “dot-dot-slash”, “directory traversal”,
+“directory climbing” and “backtracking”.
+
+In the OWASP's example, it suggests to try:
+- directly: http://<ip_address>/../
+or through filters:
+- ?file=../
+- ?home=../
+- ?page=../
+All of the above have no effect on the page until the last one,
+which showes us some weird response. So we should keep trying by going deeper
+until we notice that reponse doesn't change anymore, meaning
+that we should try something different at that point.
+
+In the OWASP's example, it suggests to try UNIX/LINUX password file exploitation:
+- etc/shadow
+- etc/passwd
+First one doesn't do anything, but the second one gets us the flag!
+
+So, the final url would be:
+    http://<ip_address>/?page=../../../../../../../etc/passwd
+
+FIX
+
+- Prefer working without user input when using file system calls.
+- Use indexes rather than actual portions of file names when templating or using language files
+(ie value 5 from the user submission = Czechoslovakian, rather than expecting the user to return “Czechoslovakian”).
+- Ensure the user cannot supply all parts of the path – surround it with your path code.
+- Validate the user’s input by only accepting known good – do not sanitize the data.
+- Use chrooted jails (set current directory as root and run process from there,
+    so user can't access anything outside of that directory)
+- Code access policies to restrict where the files can be obtained or saved to
+    and to check if the user have correct rigth to access the resource.
+- If forced to use user input for file operations, normalize the input before using it.
+
+https://owasp.org/www-community/attacks/Path_Traversal#example-1

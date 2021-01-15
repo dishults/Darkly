@@ -9,4 +9,22 @@ in the response.
 
 FIX
 
+- Never trust user input and never run code from it or make it's files executable.
+- Check the file extention and only accept the necessary ones.
+- At the server, in a sandbox, check all the files that are uploaded to it 
+    through scanning and validation
+    before making them available for users or saving them.
+    If in doubt, discard the file and show the error message.
+- All the control and Unicode characters should be removed from the filenames and their extensions,
+    without any exception. Also, the special characters such as “;”, “:”, “>”, “<”, “/” ,”\”,
+    additional “.”, “*”, “%”, “$”, and so on should be discarded as well.
+    If you don't need to have Unicode characters,
+    it is highly recommended to only accept Alpha-Numeric characters
+    and only 1 dot as an input for the file name and the extension;
+    in which the file name and also the extension should not be empty.
+- Limit the filename length and file size.
+- Check the set limits server-side.
+- If possible, consider saving the files in a database rather than on the filesystem.
+- If possible, file uploaders should be only accessible to authenticated and authorised users.
+
 https://owasp.org/www-community/vulnerabilities/Unrestricted_File_Upload
