@@ -1,0 +1,12 @@
+At the file upload page we try to upload a file of a different type by
+pretending it's an image.
+
+By inspecting the form for file upload we find relevant info to make our request:
+    <input name="uploaded" type="file" />
+	<input type="submit" name="Upload" value="Upload">
+So, we creat our script accordingly, upload the file and look for the flag
+in the response.
+
+FIX
+
+https://owasp.org/www-community/vulnerabilities/Unrestricted_File_Upload

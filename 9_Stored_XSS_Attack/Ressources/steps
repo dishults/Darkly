@@ -1,0 +1,28 @@
+https://owasp.org/www-community/attacks/xss/#stored-xss-attacks
+
+At the Feedback page enter 'scrip' into either 'name' or 'message', that way, if
+text field is incorrectly implemented, you put a permanent code on the server that will be
+sent to and run on every user's machine when he/she visits the page.
+
+FIX
+- HTML Encode Before Inserting Untrusted Data into HTML Element Content:
+
+<body>
+...ENCODE UNTRUSTED DATA BEFORE PUTTING HERE...
+</body>
+
+<div>
+...ENCODE UNTRUSTED DATA BEFORE PUTTING HERE...
+</div>
+
+To do that change (&, <, >, ", ') characters in user input, so that you can print them,
+but they won't be considered as part of the code and won't allow executing of any kind,
+they'll be just text, plain and simple text:
+    & --> &amp;
+    < --> &lt;
+    > --> &gt;
+    " --> &quot;
+    ' --> &#x27;
+Most web frameworks have a method for HTML encoding/escaping for these characters.
+
+https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html#rule-1-html-encode-before-inserting-untrusted-data-into-html-element-content

