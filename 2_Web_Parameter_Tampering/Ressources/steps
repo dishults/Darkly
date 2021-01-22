@@ -1,0 +1,22 @@
+Click sign in => I forgot my password. Then immeadiately you see that there is
+no field to enter your email or username, only the 'submit' button.
+By inspecting that button you can see that right above it
+there is an input block with type 'hidden' and email already pre-filled.
+Change 'webmaster' to anything (ex. 'me') and click submit.
+
+FIX
+
+- Just because it's a "hidden" field, doesn't mean it can't be found.
+    It’s only hidden when running the page and visible with source code inspector.
+    So, instead, just store such data in a backend database and don't ever put
+    in html the email for where such requests should be sent, always store such info server-side
+    and send only a session ID to the browser.
+- To check that the form and your "hidden" fields hasn't been tampered
+    you can use "Message Digest" algorithms (md5, sha1, etc),
+    which are similar to to checksums that produce a "fingerprint" of the characters
+    that changes if the characters has been changed (tampered). Then, when the form
+    is submited, the hidden fields returned can be fingerprinted again
+    and compared to the original fingerprint.
+
+https://owasp.org/www-community/attacks/Web_Parameter_Tampering#example-2
+https://www.cgisecurity.com/lib/form-tampering.pdf

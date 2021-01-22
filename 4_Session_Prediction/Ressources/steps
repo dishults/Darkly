@@ -1,0 +1,21 @@
+In a browser inspector click Application -> Cookies
+and you can see just one labeled "I_am_admin" with a value looking a lot like a hash.
+By decrypting it with md5 we get 'false'.
+So, just get what is the value 'true' in md5 and replace it, reload the page.
+
+FIX
+
+- In cookies, don't store "key:value" pair that directly determines
+    if the user is admin or not. Instead, send only a session ID 
+    to the browser and verify the privileges server-side.
+- Sign the cookie and verify it has the same fingerprint upon receiving the request.
+- Don't use md5 for encryption,
+    or use it with salt (password = 'password' + 'some_word')
+- Use web framework's built-in Session Management Implementations,
+    like in Django when you want to manage sessions through cookies,
+    you can set the SESSION_ENGINE setting to
+    "django.contrib.sessions.backends.signed_cookies". That way the session data will be
+    stored using Django’s tools for cryptographic signing and the SECRET_KEY setting.
+
+https://owasp.org/www-community/attacks/Session_Prediction
+https://docs.djangoproject.com/en/3.1/topics/http/sessions/#using-cookie-based-sessions

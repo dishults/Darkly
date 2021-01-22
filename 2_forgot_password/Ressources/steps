@@ -1,7 +1,0 @@
-Click sign in => I forgot my password
-Then immeadiately you see that there is no field to enter your email or username, only the 'submit' button
-By inspecting that button you can see that right above it there is an input block with type 'hidden' and email already pre-filled.
-Change 'webmaster' to anything (ex. 'me') and click submit.
-
-FIX
-- don't put in html email for where such requests should be sent, instead, handle that server-side
