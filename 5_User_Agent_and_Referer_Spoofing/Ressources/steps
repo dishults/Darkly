@@ -1,0 +1,25 @@
+At the bottom of the page when you click on ©BornToSec you are taken to a page
+with a wierd address e43ad1fdc54babe674da7c7b8f0127bde61de3fbe01def7d00f151c2fcca6d1c
+    which, by the way, translates to TAMERE from sha256 (check with https://www.dcode.fr/hash-function)
+From there if you check the source code you can see that something's going on
+with all the spaces and comments, but two particular ones stand out:
+
+- You must cumming from : "https://www.nsa.gov/" to go to the next step
+- Let's use this browser : "ft_bornToSec". It will help you a lot.
+
+From this information you can conclude that the first one is about "referer" header
+and the second is about "User-Agent" header that tells the server which browser is being used.
+
+So, by setting those two headers and sending a GET request, you can then find a flag in the response.
+
+FIX
+
+- There is nothing much you can do about verifying those headers. That being said, you can try:
+- Don't relying on those or other headers that could be spoofed for any kind of
+    verification that would lead to showing sensitive information or access to private resources.
+    Just use them for something innocent like analytics and logging.
+    And check users priviliges through other means, such as authentication.
+- You can even set "Referrer-Policy" header to "no-referrer" to mitigate this issue altogether. 
+
+https://en.wikipedia.org/wiki/User_agent#User_agent_spoofing
+https://en.wikipedia.org/wiki/Referer_spoofing
