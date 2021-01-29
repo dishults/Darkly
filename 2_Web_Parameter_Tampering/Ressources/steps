@@ -4,7 +4,7 @@ Click sign in => I forgot my password. Then immeadiately you see that there is
 no field to enter your email or username, only the 'submit' button.
 By inspecting that button you can see that right above it
 there is an input block with type 'hidden' and email already pre-filled.
-Change 'webmaster' to anything (ex. 'me') and click submit.
+Change 'webmaster' to anything (e.g. 'me') and click submit.
 
 FIX
 
@@ -16,8 +16,8 @@ FIX
 - To check that the form and your "hidden" fields hasn't been tampered
     you can use "Message Digest" algorithms (md5, sha1, etc),
     which are similar to to checksums that produce a "fingerprint" of the characters
-    that changes if the characters has been changed (tampered). Then, when the form
-    is submited, the hidden fields returned can be fingerprinted again
+    that changes if the characters have been changed (tampered). Then, when the form
+    is submited, the returned hidden fields can be fingerprinted again
     and compared to the original fingerprint.
 
 https://www.cgisecurity.com/lib/form-tampering.pdf

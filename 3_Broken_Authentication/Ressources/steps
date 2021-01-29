@@ -21,13 +21,13 @@ Try that for every password.
 
 FIX
 
-- limit failed login (ex. block after 5 attemps)
-- use multi-factor authentication
-- password checking:
-    - check that you don't have the most common passwords on your systeme
-        else -> send a prompt to user to change it
-    - don't allow new users to use them when creating an account
-    - raise password complexity requirement
-        (ex. should be >= 8 chars with 1 upper, 1 num, 1 special)
-- change requests to be passed not thorught GET(in the URL)
-    but through POST(in the message body) to be more secure
+- Limit failed logins (e.g. block after 5 attempts)
+- Use multi-factor authentication
+- Password checking:
+    - Check that you don't have the most common passwords on your systeme
+        Else -> send a prompt to user to change it
+    - Don't allow new users to use them when creating an account
+    - Raise password complexity requirement
+        (e.g. should be >= 8 chars with 1 upper, 1 num, 1 special)
+- Change requests to be passed not thorught GET (in the URL)
+    but through POST (in the message body) to be more secure

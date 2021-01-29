@@ -19,7 +19,7 @@ FIX
 - Where possible, have the user provide short name, ID or token which is
     mapped server-side to a full target URL,
     e.g. "carrot" maps to facebook_url, "jeans" to twitter_url, etc.
-    Don't use 1, 2, 3 or something else logical, to avaid introducing
+    Don't use 1, 2, 3 or something else logical, to avoid introducing
         an enumeration vulnerability where a user could cycle through IDs
         to find all possible redirect targets.
 - When attempting to validate and sanitise user-input to determine whether

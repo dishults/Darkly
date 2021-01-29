@@ -26,11 +26,12 @@ Demande Ã  ton voisin de droite
 FIX
 
 Since Robots.txt directives may not be supported by all search engines and
-    a robotted page can still be indexed if linked to from other sites, so
-    it's not a valid technique to prevent access to private resources.
+    a robotted page can still be indexed if linked to from other sites,
+    and it doesn't have any effect on user viewing it,
+    so it's not a valid technique to prevent access to private resources.
 So better do:
-- don't list private resources at all in robots.txt
-- password protect those private resources
+- Don't list private resources at all in robots.txt to not inadvertently leak them
+- Password protect those private resources
     and you might even require users to retype it on every access.
     Or at least, check on the server if the user is authenticated
     and has the right priveleges to access it and

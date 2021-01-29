@@ -32,5 +32,5 @@ FIX
 - Use chrooted jails (set current directory as root and run process from there,
     so user can't access anything outside of that directory)
 - Code access policies to restrict where the files can be obtained or saved to
-    and to check if the user have correct rigth to access the resource.
+    and to check if the user have correct rights to access the resource.
 - If forced to use user input for file operations, normalize the input before using it.

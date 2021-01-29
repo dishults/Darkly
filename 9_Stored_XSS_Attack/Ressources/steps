@@ -1,10 +1,11 @@
 https://owasp.org/www-community/attacks/xss/#stored-xss-attacks
 
-At the Feedback page enter 'scrip' into either 'name' or 'message', that way, if
+At the Feedback page enter 'script' into either 'name' or 'message', that way, if
 text field is incorrectly implemented, you put a permanent code on the server that will be
 sent to and run on every user's machine when he/she visits the page.
 
 FIX
+
 - HTML Encode Before Inserting Untrusted Data into HTML Element Content:
 
 <body>

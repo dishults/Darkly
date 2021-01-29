@@ -18,7 +18,7 @@ So, by setting those two headers and sending a GET request, you can then find a 
 FIX
 
 - There is nothing much you can do about verifying those headers. That being said, you can try:
-- Don't relying on those or other headers that could be spoofed for any kind of
+- Not relying on those headers (or any other that could be spoofed) for any kind of
     verification that would lead to showing sensitive information or access to private resources.
     Just use them for something innocent like analytics and logging.
     And check users priviliges through other means, such as authentication.

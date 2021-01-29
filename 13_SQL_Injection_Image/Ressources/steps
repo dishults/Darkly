@@ -23,7 +23,7 @@ At the end you find 'list_images' table with the following columns:
 
 After trying them all you find that the one you're looking for is 'comment',
 but since the hack only works when there are 2 selected,
-so you should include any other column, ex. 'title':
+so you should include any other column, e.g. 'title':
     1 UNION SELECT comment, title FROM list_images
 By following the comment's instructions you get the flag.
     `md5 decode` gets you "albatroz"
