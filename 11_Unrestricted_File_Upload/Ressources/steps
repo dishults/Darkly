@@ -1,3 +1,5 @@
+https://owasp.org/www-community/vulnerabilities/Unrestricted_File_Upload
+
 At the file upload page we try to upload a file of a different type by
 pretending it's an image.
 
@@ -26,5 +28,3 @@ FIX
 - Check the set limits server-side.
 - If possible, consider saving the files in a database rather than on the filesystem.
 - If possible, file uploaders should be only accessible to authenticated and authorised users.
-
-https://owasp.org/www-community/vulnerabilities/Unrestricted_File_Upload

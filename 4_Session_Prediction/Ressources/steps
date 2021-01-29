@@ -1,3 +1,5 @@
+https://owasp.org/www-community/attacks/Session_Prediction
+
 In a browser inspector click Application -> Cookies
 and you can see just one labeled "I_am_admin" with a value looking a lot like a hash.
 By decrypting it with md5 we get 'false'.
@@ -17,5 +19,4 @@ FIX
     "django.contrib.sessions.backends.signed_cookies". That way the session data will be
     stored using Django’s tools for cryptographic signing and the SECRET_KEY setting.
 
-https://owasp.org/www-community/attacks/Session_Prediction
 https://docs.djangoproject.com/en/3.1/topics/http/sessions/#using-cookie-based-sessions

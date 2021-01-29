@@ -1,3 +1,5 @@
+https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/01-Information_Gathering/03-Review_Webserver_Metafiles_for_Information_Leakage
+
 By checking robots.txt file we can see two disallowed folders /whatever and /.hidden.
 In the second one we find lots of folders with README files.
 Just make a crawler that reads those files and saves unique messages.
@@ -36,4 +38,3 @@ So better do:
 
 https://developers.google.com/search/docs/advanced/robots/intro#understand-the-limitations-of-robots.txt
 https://developers.google.com/search/docs/advanced/robots/robots-faq#h13
-https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/01-Information_Gathering/03-Review_Webserver_Metafiles_for_Information_Leakage

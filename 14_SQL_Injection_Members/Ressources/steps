@@ -1,7 +1,9 @@
+https://owasp.org/www-community/attacks/SQL_Injection
+
 First, try the most basic SQL Injection there is:
     1 OR 1=1
-And immediately you get the results that shows it works. Meaning that the server
-uses straight SQL quiries in it's code and at the end has WHERE id=<user_input>
+And immediately you get the results that show it works. Meaning that the server
+uses direct SQL quiries in it's code and at the end has WHERE id=<user_input>
 
 Among the info from our first query there is a clue:
     First name: Flag
@@ -31,5 +33,23 @@ By following the discovered instructions you get the flag.
 
 FIX
 
-https://owasp.org/www-community/attacks/SQL_Injection
+- Use Prepared Statements (with Parameterized Queries).
+    Meaning that you pre-compile the same or similar SQL statements so that all you need is to
+    supply the "parameters" that need to be inserted into the statement for it to be executed.
+    You should escape those parameters before inserting them into the statements,
+    because they may be unsafe.
+    For example, in our case, if an attacker were to enter the id of "1 OR 1=1",
+    the parameterized query would not be vulnerable
+    and would instead look for an id which literally matched the entire string "1 OR 1=1".
+- You can also use Whitelist Input Validation
+    E.g. if you're expecting id to be always numbers, then you should accept only numbers in the input.
+    If id is a string, then exclude all SQL related keywords, like OR, UNION, etc. or even spaces.
+- Also, to minimize the potential damage of a successful SQL injection attack, you should minimize
+    the privileges assigned to every database account in your environment.
+    Make sure that accounts that only need read access are only granted this type of access and only
+    to the tables they need access to.
+    Or if an account only needs access to portions of a table, consider creating a view that limits
+    access to only that portion of the data and assigning the account access
+    to the view instead, rather than the underlying table.
+
 https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html

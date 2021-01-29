@@ -1,3 +1,5 @@
+https://owasp.org/www-community/attacks/Path_Traversal#example-1
+
 This attack is also known as “dot-dot-slash”, “directory traversal”,
 “directory climbing” and “backtracking”.
 
@@ -32,5 +34,3 @@ FIX
 - Code access policies to restrict where the files can be obtained or saved to
     and to check if the user have correct rigth to access the resource.
 - If forced to use user input for file operations, normalize the input before using it.
-
-https://owasp.org/www-community/attacks/Path_Traversal#example-1

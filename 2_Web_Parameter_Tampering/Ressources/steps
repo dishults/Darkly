@@ -1,3 +1,5 @@
+https://owasp.org/www-community/attacks/Web_Parameter_Tampering#example-2
+
 Click sign in => I forgot my password. Then immeadiately you see that there is
 no field to enter your email or username, only the 'submit' button.
 By inspecting that button you can see that right above it
@@ -18,5 +20,4 @@ FIX
     is submited, the hidden fields returned can be fingerprinted again
     and compared to the original fingerprint.
 
-https://owasp.org/www-community/attacks/Web_Parameter_Tampering#example-2
 https://www.cgisecurity.com/lib/form-tampering.pdf
