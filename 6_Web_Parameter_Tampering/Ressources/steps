@@ -1,0 +1,14 @@
+At the Survey page we can choose a grade we give each subject.
+By inspecting the fields with values we can see that they are hard coded
+and we can easily change them and assign waaay more points than supposed to,
+thus, altering the results of the survey dramatically.
+
+FIX
+
+- At least, use validators to check server-side the values recieved, that they are >= 1 and <= 10
+- Better yet, on the client side use custom values like "salt", "pepper", "spice", etc.
+    and at your surver have a dictionary with corresponding number values 1, 2, 3, etc.
+    and so if a recieved value is not in a dictionary, server would through an error.
+
+https://owasp.org/www-community/attacks/Web_Parameter_Tampering
+https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html#implementing-input-validation

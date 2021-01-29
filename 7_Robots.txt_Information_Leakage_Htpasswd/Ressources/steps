@@ -1,0 +1,24 @@
+By checking robots.txt file we can see two disallowed folders /whatever and /.hidden.
+In the first one we find standart password file htpasswd.
+Inside there is a key-value pair, key is unencrypted 'root' and the password for it
+is md5 encrypted and is 'dragon'.
+
+We can deduce that root is definitely for admin access so we go to /admin page
+and enter the above details.
+
+FIX
+
+Since Robots.txt directives may not be supported by all search engines and
+    a robotted page can still be indexed if linked to from other sites, so
+    it's not a valid technique to prevent access to private resources.
+So better do:
+- don't list private resources at all in robots.txt
+- password protect those private resources
+    and you might even require users to retype it on every access.
+    Or at least, check on the server if the user is authenticated
+    and has the right priveleges to access it and
+    don't rely on the client side or robots.txt file.
+
+https://developers.google.com/search/docs/advanced/robots/intro#understand-the-limitations-of-robots.txt
+https://developers.google.com/search/docs/advanced/robots/robots-faq#h13
+https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/01-Information_Gathering/03-Review_Webserver_Metafiles_for_Information_Leakage
