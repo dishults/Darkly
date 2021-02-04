@@ -4,6 +4,7 @@ In a browser inspector click Application -> Cookies
 and you can see just one labeled "I_am_admin" with a value looking a lot like a hash.
 By decrypting it with md5 we get 'false'.
 So, just get what is the value 'true' in md5 and replace it, reload the page.
+    md5 -s true
 
 FIX
 

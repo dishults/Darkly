@@ -5,7 +5,7 @@ Click inspect element on it and see that there is a redirect:
     http://<ip_address>/index.php?page=redirect&site=facebook
 Change 'facebook' to 'mysite' (or anything else):
     http://<ip_address>/index.php?page=redirect&site=mysite
-et voilà
+And click on the f icon
 
 FIX
 

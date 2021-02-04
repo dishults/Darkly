@@ -1,5 +1,6 @@
 https://owasp.org/www-community/attacks/SQL_Injection
 
+Go to members page
 First, try the most basic SQL Injection there is:
     1 OR 1=1
 And immediately you get the results that show it works. Meaning that the server
@@ -14,7 +15,7 @@ of parameters you find that the hack only works with 2.
 
 Now, since we're at the members page we need to find a table for members/users/accounts/profiles
 and columns for it:
-    1 OR 1=1 UNION SELECT TABLE_NAME, COLUMN_NAME FROM information_schema.columns
+    1 UNION SELECT TABLE_NAME, COLUMN_NAME FROM information_schema.columns
 At the end you find 'users' table with the following columns:
     user_id
     first_name
@@ -43,7 +44,7 @@ FIX
     and would instead look for an id which literally matched the entire string "1 OR 1=1".
 - You can also use Whitelist Input Validation
     E.g. if you're expecting id to be always numbers, then you should accept only numbers in the input.
-    If id is a string, then exclude all SQL related keywords, like OR, UNION, etc. or even spaces.
+    If id is a string, then escape all non alpha-numberic charecters, including spaces.
 - Also, to minimize the potential damage of a successful SQL injection attack, you should minimize
     the privileges assigned to every database account in your environment.
     Make sure that accounts that only need read access are only granted this type of access and only

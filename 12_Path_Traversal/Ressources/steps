@@ -28,7 +28,7 @@ FIX
 - Use indexes rather than actual portions of file names when templating or using language files
 (ie value 5 from the user submission = Czechoslovakian, rather than expecting the user to return “Czechoslovakian”).
 - Ensure the user cannot supply all parts of the path – surround it with your path code.
-- Validate the user’s input by only accepting known good – do not sanitize the data.
+- Validate the user’s input by only accepting known good.
 - Use chrooted jails (set current directory as root and run process from there,
     so user can't access anything outside of that directory)
 - Code access policies to restrict where the files can be obtained or saved to

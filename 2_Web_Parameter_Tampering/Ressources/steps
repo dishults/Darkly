@@ -15,7 +15,7 @@ FIX
     and send only a session ID to the browser.
 - To check that the form and your "hidden" fields hasn't been tampered
     you can use "Message Digest" algorithms (md5, sha1, etc),
-    which are similar to to checksums that produce a "fingerprint" of the characters
+    which are similar to the checksums that produce a "fingerprint" of the characters
     that changes if the characters have been changed (tampered). Then, when the form
     is submited, the returned hidden fields can be fingerprinted again
     and compared to the original fingerprint.

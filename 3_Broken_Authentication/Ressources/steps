@@ -8,7 +8,7 @@ For this solution to work you don't need a username (use 'me', or 'admin' or lea
 but the most common usernames for admins you can find at:
 https://github.com/danielmiessler/SecLists/blob/master/Usernames/CommonAdminBase64.txt
 
-First, determine what you should send with your GET request.
+First, at the login page, determine what you should send with your GET request.
 Enter any username and password and click submit.
 Since it's a GET request, you can check the URL for what parameters were sent.
     For POST requests:
@@ -21,6 +21,8 @@ Try that for every password.
 
 FIX
 
+- Don't ever use HTTP and GET (in the URL) requests for sensitive info transfers,
+    prefer HTTPS and POST (in the message body).
 - Limit failed logins (e.g. block after 5 attempts)
 - Use multi-factor authentication
 - Password checking:
@@ -29,5 +31,3 @@ FIX
     - Don't allow new users to use them when creating an account
     - Raise password complexity requirement
         (e.g. should be >= 8 chars with 1 upper, 1 num, 1 special)
-- Change requests to be passed not thorught GET (in the URL)
-    but through POST (in the message body) to be more secure
