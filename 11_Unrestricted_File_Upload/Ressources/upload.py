@@ -27,7 +27,7 @@ def main():
 if __name__ == "__main__":
     if not URL:
         parser = argparse.ArgumentParser(
-            description="Upload an executable file that pretends it's an image")
+            description="Upload an executable file pretending it's an image")
         parser.add_argument("URL", help="URL address of the server")
         args = parser.parse_args()
         URL = args.URL

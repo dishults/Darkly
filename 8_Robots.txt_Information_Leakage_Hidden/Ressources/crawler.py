@@ -8,7 +8,8 @@ import sys
 
 URL = os.environ.get('URL')
 # find whatever is in between quotes in href
-# find all patterns (excluding '../' or 'README') that were preceded with href=" and until "
+#   find all patterns (excluding '../' or 'README')
+#   that were preceded with href=" and until "
 PATTERN = re.compile(r'(?!../|README)(?<=href=")[^"]*')
 TEXT = set()
 
