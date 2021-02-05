@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 
 import argparse
+import os
 import requests
 import re
 import sys
 
+URL = os.environ.get('URL')
 # find whatever is in between quotes in href
 # find all patterns (excluding '../' or 'README') that were preceded with href=" and until "
 PATTERN = re.compile(r'(?!../|README)(?<=href=")[^"]*')
@@ -26,8 +28,10 @@ def main(URL):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(
-        description="Crawl website and find the right README")
-    parser.add_argument("URL", help="URL address of the server")
-    args = parser.parse_args()
-    main(args.URL + "/.hidden/")
+    if not URL:
+        parser = argparse.ArgumentParser(
+            description="Crawl website and find the right README")
+        parser.add_argument("URL", help="URL address of the server")
+        args = parser.parse_args()
+        URL = args.URL
+    main(URL + "/.hidden/")
