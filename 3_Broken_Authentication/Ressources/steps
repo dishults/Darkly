@@ -1,4 +1,5 @@
 https://owasp.org/www-project-top-ten/2017/A2_2017-Broken_Authentication
+https://owasp.org/www-community/controls/Blocking_Brute_Force_Attacks
 
 As metioned in OWASP you can get a list of known and most common passwords at 
 https://github.com/danielmiessler/SecLists/blob/master/Passwords/
@@ -31,3 +32,5 @@ FIX
     - Don't allow new users to use them when creating an account
     - Raise password complexity requirement
         (e.g. should be >= 8 chars with 1 upper, 1 num, 1 special)
+
+https://owasp.org/www-community/controls/Blocking_Brute_Force_Attacks
